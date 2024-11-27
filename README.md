@@ -20,16 +20,18 @@ For more details see [action.yaml](action.yaml) and [src/main.sh](src/main.sh).
 
 ## Inputs
 
-| input    | required | default               | description               |
-| -------- | -------- | --------------------- | ------------------------- |
-| host     | **Yes**  | -                     | Remote Docker hostname    |
-| port     | No       | `22`                  | Remote Docker port        |
-| user     | **Yes**  | -                     | Remote Docker username    |
-| pass     | No       | -                     | Remote Docker password \* |
-| ssh_key  | No       | -                     | Remote SSH Key file \*    |
-| file     | No       | `docker-compose.yaml` | Docker Compose file       |
-| name     | **Yes**  | -                     | Docker Stack name         |
-| env_file | No       | -                     | Docker Environment file   |
+| input          | required | default               | description               |
+| -------------- | -------- | --------------------- | ------------------------- |
+| host           | **Yes**  | -                     | Remote Docker hostname    |
+| port           | No       | `22`                  | Remote Docker port        |
+| user           | **Yes**  | -                     | Remote Docker username    |
+| pass           | No       | -                     | Remote Docker password \* |
+| ssh_key        | No       | -                     | Remote SSH Key file \*    |
+| file           | No       | `docker-compose.yaml` | Docker Compose file       |
+| name           | **Yes**  | -                     | Docker Stack name         |
+| env_file       | No       | -                     | Docker Environment file   |
+| prune          | No       | `false`               | prune dangling services   |
+| registry_auth  | No       | `false`               | Registry authentication   |
 
 **pass/ssh_key** - You must provide either a `pass` or `ssh_key`
 

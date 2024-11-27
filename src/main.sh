@@ -61,4 +61,17 @@ if [ -n "${INPUT_ENV_FILE}" ];then
 fi
 
 echo -e "\u001b[36mDeploying Stack: \u001b[37;1m${INPUT_NAME}"
-docker stack deploy -c "${INPUT_FILE}" "${INPUT_NAME}"
+
+deploy_command="docker stack deploy"
+
+if [[ "${INPUT_REGISTRY_AUTH}" == "true" ]]; then
+  deploy_command+=" --with-registry-auth"
+fi
+
+if [[ "${INPUT_PRUNE}" == "true" ]]; then
+  deploy_command+=" --prune"
+fi
+
+deploy_command+="-c \"${INPUT_FILE}\" \"${INPUT_NAME}\""
+
+eval "$deploy_command"

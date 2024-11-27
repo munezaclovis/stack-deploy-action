@@ -32,6 +32,14 @@ inputs:
   env_file:
     description: "Environment File"
     required: false
+  registry_auth:
+    description: "Activate registry authentication at deployment"
+    default: false
+    required: false
+  prune:
+    description: "Prune dangling services?"
+    default: false
+    required: false
 
 runs:
   using: "docker"
