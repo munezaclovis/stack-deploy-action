@@ -72,6 +72,6 @@ if [[ "${INPUT_PRUNE}" == "true" ]]; then
   deploy_command+=" --prune"
 fi
 
-deploy_command+="-c \"${INPUT_FILE}\" \"${INPUT_NAME}\""
+deploy_command+=" -c \"${INPUT_FILE}\" \"${INPUT_NAME}\""
 
 eval "$deploy_command"
