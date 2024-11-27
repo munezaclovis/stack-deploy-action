@@ -46,7 +46,7 @@ trap cleanup_trap EXIT HUP INT QUIT PIPE TERM
 echo -e "\u001b[36mVerifying Docker and Setting Context."
 ssh -p "${INPUT_PORT}" "${INPUT_USER}@${INPUT_HOST}" "docker info" > /dev/null
 
-if [[ -z "${INPUT_REGISTRY}" ]]; then
+if [[ -n "${INPUT_REGISTRY}" ]]; then
     echo -e "\u001b[36mLogging into Docker Registry: \u001b[37;1m${INPUT_REGISTRY}"
     echo "${INPUT_REGISTRY_PASSWORD}" | docker login --username "${INPUT_REGISTRY_USERNAME}" "${INPUT_REGISTRY}" --password-stdin
 fi
@@ -83,7 +83,7 @@ echo -e "\u001b[36mDeployment Command: \u001b[37;1m$deploy_command"
 
 eval "$deploy_command"
 
-if [[ -z "${INPUT_REGISTRY}" ]]; then
+if [[ -n "${INPUT_REGISTRY}" ]]; then
     echo -e "\u001b[36mLogin out of docker: \u001b[37;1m${INPUT_NAME}"
     docker logout "${INPUT_REGISTRY}"
 fi
