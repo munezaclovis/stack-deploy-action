@@ -32,6 +32,15 @@ inputs:
   env_file:
     description: "Environment File"
     required: false
+  registry:
+    description: "Registry repo url"
+    required: false
+  registry_username:
+    description: "Registry Username"
+    required: false
+  registry_password:
+    description: "Registry Password"
+    required: false
   registry_auth:
     description: "Activate registry authentication at deployment"
     default: false
